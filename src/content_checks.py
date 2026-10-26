@@ -6,7 +6,7 @@ import textstat
 
 
 class ContentChecker:
-    """Validates marketing content against various rules and best practices."""
+    """Validates marketing content against ASA CAP Code rules and best practices."""
 
     CHANNEL_LIMITS = {
         "twitter": 280,
@@ -93,7 +93,7 @@ class ContentChecker:
         return passed, scores
 
     def check_unverifiable_claims(self, content: str) -> Tuple[bool, List[str]]:
-        """Check for unverifiable advertising claims."""
+        """Check for unverifiable advertising claims per ASA CAP Code guidance."""
         issues = []
         content_lower = content.lower()
 

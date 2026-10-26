@@ -2,6 +2,8 @@
 
 A portfolio-quality learning project demonstrating an LLM-powered agent that drafts and validates marketing content for fictional products. The agent uses tool-calling loops to plan content variants, draft copy, run automated checks, and revise based on feedback.
 
+> **Note**: This is an unpaid, non-commercial learning project. All product examples are fictional. Validation checks reference UK advertising standards (ASA CAP Code and CMA consumer protection guidance).
+
 ## 🎯 What This Project Demonstrates
 
 - **Tool-calling agent architecture** with planning, execution, and revision loops
@@ -136,9 +138,11 @@ MARKETING CONTENT GENERATION RESULTS
   Content: Stop wasting money on disposable bottles! Our premium reusable bottle pays 
   for itself in just 2 weeks. Smart choice for your wallet & the planet. 💰
   Status: ✅ PASSED
+  
+  Note: Sample output from mock LLM (example iteration count may vary)
 
   [v3]
-  Content: Hydration meets high fashion! Trending designs that turn heads while keeping 
+  Content: Hydration meets high fashion! Trending designs that turn heads whilst keeping 
   drinks at the perfect temp. Your new must-have accessory! ✨
   Status: ✅ PASSED
 
@@ -150,7 +154,7 @@ MARKETING CONTENT GENERATION RESULTS
   Changes: Removed absolute claim 'zero-waste'
   Status: ✅ PASSED
 
-🔢 Total iterations: 7
+🔢 Total iterations: 7 (example - actual count varies by execution)
 ================================================================================
 ```
 
@@ -170,7 +174,7 @@ pytest tests/test_agent.py -v
 ### Test Coverage
 
 - **test_content_checks.py**: Validates all content checking logic
-- **test_llm_client.py**: Tests mock and real LLM client behavior
+- **test_llm_client.py**: Tests mock and real LLM client behaviour
 - **test_agent.py**: End-to-end agent execution tests
 
 ## 📁 Project Structure
@@ -211,7 +215,7 @@ Channel-specific character limits prevent content from being cut off:
 - Ad Copy: 150 characters
 
 ### 2. Banned Words
-Flags problematic marketing terms that often violate platform policies or advertising standards:
+Flags problematic marketing terms that often violate platform policies or ASA advertising standards:
 - Absolute guarantees: "guaranteed", "risk-free"
 - Medical claims: "cure", "miracle", "doctor recommended"
 - Scam indicators: "free money", "get rich quick"
@@ -226,7 +230,7 @@ Uses regex patterns to detect unqualified superlatives and absolutes:
 ### 4. Readability Scores
 Uses textstat library to calculate:
 - **Flesch Reading Ease**: Measures how easy text is to read (60+ recommended)
-- **Flesch-Kincaid Grade**: Estimates U.S. grade level needed (≤10 recommended)
+- **Flesch-Kincaid Grade**: Estimates reading age needed (≤10 recommended for general audience)
 
 ### 5. Unverifiable Claims
 Checks for advertising claims that require substantiation:
@@ -248,8 +252,8 @@ Checks for advertising claims that require substantiation:
 - **Command Pattern**: Tool calls encapsulate operations with validation
 
 ### Marketing & Compliance
-- **Advertising Standards**: Researched FTC guidelines on unverifiable claims and substantiation requirements
-- **Platform Policies**: Learned channel-specific content limits and prohibited terms
+- **Advertising Standards**: Researched ASA CAP Code and CMA consumer protection guidance on unverifiable claims and substantiation requirements
+- **Platform Policies**: Learnt channel-specific content limits and prohibited terms
 - **Readability Metrics**: Applied established formulas (Flesch-Kincaid) for content accessibility
 
 ### Software Engineering
@@ -260,7 +264,7 @@ Checks for advertising claims that require substantiation:
 
 ## 🚧 Known Limitations
 
-1. **Mock LLM Simplicity**: The mock generates predetermined responses based on simple pattern matching. Real LLM behavior is more nuanced.
+1. **Mock LLM Simplicity**: The mock generates predetermined responses based on simple pattern matching. Real LLM behaviour is more nuanced.
 
 2. **Single Language**: Only supports English content. Readability metrics and banned-word lists are English-specific.
 

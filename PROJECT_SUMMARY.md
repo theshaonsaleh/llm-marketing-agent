@@ -43,7 +43,7 @@ Comprehensive validation pipeline with 5 independent checks:
 
 #### Readability Scores
 - **Flesch Reading Ease**: 50+ (easier is better, 60-70 is plain English)
-- **Flesch-Kincaid Grade**: ≤10 (U.S. grade level required to understand)
+- **Flesch-Kincaid Grade**: ≤10 (reading age required to understand)
 
 #### Unverifiable Claims
 - Comparative superiority without proof ("best")
@@ -67,7 +67,7 @@ Three tools for the LLM:
 ### Test Suite Results
 ```
 25 tests, 100% passing
-Execution time: ~1.1 seconds
+Execution time: ~1-2 seconds (varies by system)
 ```
 
 ### Test Breakdown
@@ -147,7 +147,7 @@ Execution time: ~1.1 seconds
 ### Testing Strategy
 - Unit tests for all major components
 - Mock implementations for external dependencies
-- Deterministic test execution (no random behavior)
+- Deterministic test execution (no random behaviour)
 - Fast execution (< 2 seconds for full suite)
 
 ## Project Compliance
@@ -188,7 +188,7 @@ No heavy frameworks, no unnecessary dependencies.
 - Sample output
 - Detailed check explanations
 - Known limitations
-- What I learned section
+- What I learnt section
 - Future enhancement ideas
 
 ### Code Comments
@@ -214,7 +214,7 @@ No heavy frameworks, no unnecessary dependencies.
 - API abstraction layers
 
 **Domain Knowledge**
-- Marketing compliance (FTC substantiation)
+- Marketing compliance (ASA CAP Code & CMA consumer protection guidance)
 - Platform content policies
 - Readability metrics
 - Advertising best practices
@@ -255,7 +255,7 @@ python3 -m src.cli --brief examples/water_bottle_brief.json --verbose
 ## Repository Stats
 
 - **Total Files**: 18 files
-- **Lines of Code**: ~1,500 lines
+- **Lines of Code**: ~1,100 Python lines, ~1,700 total
 - **Test Coverage**: 25 tests (100% pass rate)
 - **Documentation**: Comprehensive README + inline docs
 - **Examples**: 3 fictional product briefs

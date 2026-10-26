@@ -64,7 +64,7 @@ class MockLLM:
             elif num_drafts == 1:
                 content = "Stop wasting money on disposable bottles! Our premium reusable bottle pays for itself in just 2 weeks. Smart choice for your wallet and the planet. 💰"
             elif num_drafts == 2:
-                content = "Hydration meets high fashion! Trending designs that turn heads while keeping drinks at the perfect temp. Your new must-have accessory! ✨"
+                content = "Hydration meets high fashion! Trending designs that turn heads whilst keeping drinks at the perfect temp. Your new must-have accessory! ✨"
             else:
                 content = "Stay hydrated in style with our premium reusable water bottles! Perfect for daily use."
 
@@ -91,7 +91,7 @@ class MockLLM:
                     content = "Save the planet one sip at a time! Our sleek reusable bottles keep drinks cold for 24hrs. Join the movement today! 🌍💧"
                     changes = "Removed absolute claim 'zero-waste'"
                 elif "perfect" in str(messages[-3:]):
-                    content = "Hydration meets high fashion! Trending designs that turn heads while keeping drinks at great temp. Your new must-have accessory! ✨"
+                    content = "Hydration meets high fashion! Trending designs that turn heads whilst keeping drinks at great temp. Your new must-have accessory! ✨"
                     changes = "Changed 'perfect' to 'great' to avoid absolute claim"
                 else:
                     content = "Stay hydrated with our reusable bottles! Great for daily use and kind to the planet. 💧"
