@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, cursor/* ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11"]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run tests with pytest
+      run: |
+        pytest tests/ -v --cov=marketing_agent --cov-report=term-missing
+
+    - name: Test CLI (mock mode)
+      run: |
+        python -m marketing_agent.cli --brief examples/coffee_brand.json --mock --output test_output.md
+        test -f test_output.md || exit 1
+        echo "CLI test passed"
+
+    - name: Validate example briefs
+      run: |
+        for brief in examples/*.json; do
+          python -c "import json; json.load(open('$brief'))" || exit 1
+          echo "✓ $brief is valid JSON"
+        done
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Check code structure
+      run: |
+        python -c "import marketing_agent; import marketing_agent.agent; import marketing_agent.llm; import marketing_agent.validators"
+        echo "✓ All modules import successfully"
