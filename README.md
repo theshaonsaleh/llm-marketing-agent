@@ -150,8 +150,8 @@ from marketing_agent.agent import MarketingAgent
 from marketing_agent.llm import create_llm
 
 brief = {
-    "product": "CloudBean Coffee",
-    "audience": "remote workers",
+    "product": "PawPantry",
+    "audience": "pet owners",
     "channel": "twitter",
     "tone": "casual"
 }
@@ -172,24 +172,24 @@ for variant in result.variants:
 
 ```json
 {
-  "product": "CloudBean Coffee",
-  "audience": "remote workers and digital nomads",
+  "product": "PawPantry",
+  "audience": "pet owners seeking convenient premium care",
   "channel": "twitter",
   "tone": "casual",
-  "additional_context": "Premium single-origin coffee delivered monthly"
+  "additional_context": "Monthly subscription box with premium pet food, treats, and toys customized for your pet"
 }
 ```
 
 ### Generated Output
 
 ```
-☕ Start your day right with CloudBean Coffee! Premium single-origin 
-beans delivered monthly. Perfect for remote workers and digital nomads. 
+🐾 Treat your furry friend right with PawPantry! Premium pet food, treats & toys 
+delivered monthly. Customized for your pet's needs. 
 Try it today! ✨
 ```
 
 **Validation Results:**
-- ✅ Character Limit: 157/280 characters
+- ✅ Character Limit: 163/280 characters
 - ✅ Readability: Grade 6.2 (target: ≤8)
 - ✅ Banned Claims: No issues detected
 - ✅ Brand Voice: Call-to-action present, tone appropriate
@@ -223,7 +223,7 @@ All tests run in **offline mode** using the mock LLM.
 │   ├── coffee_brand.json
 │   ├── fitness_app.json
 │   ├── meal_kit.json
-│   ├── learning_platform.json
+│   ├── pet_subscription.json
 │   └── travel_app.json
 ├── tests/
 │   ├── test_agent.py
